@@ -1,0 +1,26 @@
+[
+  {
+    "title": "COMAC Research",
+    "subtitle": "Downstream Petroleum",
+    "years": "2024 – Now",
+    "tags": ["Analyst", "Quality & Safety"],
+    "image": "assets/proj1-photo.png",
+    "link": ""
+  },
+  {
+    "title": "SPE Africa Newsletter",
+    "subtitle": "Regional Communications",
+    "years": "2024 – Now",
+    "tags": ["Quality & Safety", "SPE Leader"],
+    "image": "assets/proj2-photo.png",
+    "link": ""
+  },
+  {
+    "title": "SPE Ghana Membership",
+    "subtitle": "Growth & Retention",
+    "years": "2025 – Now",
+    "tags": ["Communicator", "Analyst"],
+    "image": "assets/proj3-photo.png",
+    "link": ""
+  }
+]

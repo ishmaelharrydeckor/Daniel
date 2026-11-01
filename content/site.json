@@ -1,0 +1,54 @@
+{
+  "name": "Daniel Kwabla Avudzivi",
+  "logo": "Daniel A.",
+  "firstName": "Daniel",
+  "lastName": "Avudzivi",
+  "tagline": "Oil and gas analyst supporting downstream businesses with research-backed recommendations and practical insights.",
+  "location": "Based in Accra, Ghana",
+  "ctaLabel": "Let's connect",
+  "portrait": "assets/daniel.jpg",
+  "aboutHeading": "Hello, I’m Daniel",
+  "aboutIntro": "Here you’ll find what I do and how I can support your energy business.",
+  "mission": "My mission is to support Ghana’s energy sector with research, quality and clear communication.",
+  "polaroids": [
+    "assets/polaroid-1.png",
+    "assets/polaroid-2.png",
+    "assets/polaroid-3.png",
+    "assets/polaroid-4.png"
+  ],
+  "roles": [
+    {
+      "label": "Analyst",
+      "description": "I support oil and gas business operations with research-backed recommendations, developing market research, industry reports and policy analyses for downstream petroleum companies."
+    },
+    {
+      "label": "Quality & Safety",
+      "description": "I help service companies satisfy their clients by putting quality management systems in place and reducing operational downtime, with skills in process safety and accident investigation."
+    },
+    {
+      "label": "Communicator",
+      "description": "I help industry professionals strengthen their media presence through articles and social media, and serve as Communications Officer for SPE Africa Region."
+    },
+    {
+      "label": "SPE Leader",
+      "description": "I chair the Membership Committee of SPE Ghana Section, leading growth, engagement and retention for Ghana’s energy professionals."
+    }
+  ],
+  "projectsIntro": "These are the initiatives I’ve led, contributed to, or supported across Ghana’s energy sector.",
+  "otherWorkHeading": "Other projects",
+  "careerIntro": "The journey to becoming who I am today wasn’t easy, and I look back on every step with love. Below are my key roles.",
+  "careerLink": "https://www.linkedin.com/in/daniel-kwabla-avudzivi/",
+  "careerLinkLabel": "View Full Career",
+  "achievementsHeading": "Milestones & Recognition",
+  "blogIntro": "Here you can read my news, business insights, and other experiences.",
+  "blogQuote": "It’s important to share knowledge with those who have chosen the same path as you.",
+  "socials": [
+    { "type": "linkedin", "url": "https://www.linkedin.com/in/daniel-kwabla-avudzivi/" }
+  ],
+  "email": "",
+  "seo": {
+    "title": "Daniel Kwabla Avudzivi | Oil & Gas Analyst, Accra",
+    "description": "Daniel Kwabla Avudzivi is an oil and gas analyst in Accra, Ghana: downstream research, quality and safety, and energy communications. Chairperson of the SPE Ghana Membership Committee.",
+    "image": ""
+  }
+}

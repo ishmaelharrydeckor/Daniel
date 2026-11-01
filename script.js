@@ -175,7 +175,7 @@ function onScroll() {
   requestAnimationFrame(() => {
     ticking = false;
     const on = matchMedia('(min-width: 1200px)').matches && !reduceMotion;
-    hero.style.transform = on ? `translateY(${Math.min(scrollY, innerHeight * 1.5) * 0.2}px)` : '';
+    if (hero) hero.style.transform = on ? `translateY(${Math.min(scrollY, innerHeight * 1.5) * 0.2}px)` : '';
   });
 }
 addEventListener('scroll', onScroll, { passive: true });
@@ -196,7 +196,8 @@ $$('.project-sticky').forEach((wrap, i, all) => {
 });
 const rows = $$('.tl');
 rows.forEach((row, i) => {
-  addStack($('.tl__card', row), rows[i + 1] || $('.career__cta'), { threshold: 0.5, scale: 0.9, opacity: 0.6 });
+  const next = rows[i + 1] || $('.career__cta');
+  if (next) addStack($('.tl__card', row), next, { threshold: 0.5, scale: 0.9, opacity: 0.6 });
 });
 
 let last = performance.now();
@@ -279,26 +280,44 @@ $$('.acc__head').forEach((head) => {
 });
 
 // ---------- footer year + contact form ----------
-$('#year').textContent = new Date().getFullYear();
-// No backend yet: open the visitor's mail app with the message filled in.
-const CONTACT_EMAIL = 'hello@example.com';
-$('#contact-form').addEventListener('submit', (event) => {
-  event.preventDefault();
-  const data = new FormData(event.target);
-  const subject = `Message from ${data.get('name')}`;
-  const phone = data.get('phone') ? `, ${data.get('phone')}` : '';
-  const body = `${data.get('message')}\n\n— ${data.get('name')} (${data.get('email')}${phone})`;
-  location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-});
+const yearEl = $('#year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// No server: the form opens the visitor's mail app with the message filled in.
+// The address comes from the admin (Profile > Contact email). Until it is set,
+// the form points people to the social link instead.
+const form = $('#contact-form');
+if (form) {
+  const status = $('.form__status', form);
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const to = form.dataset.email;
+    if (!to) {
+      const fb = form.dataset.fallback;
+      status.innerHTML = fb
+        ? `The contact form isn’t connected yet. Please reach out <a href="${fb}" target="_blank" rel="noopener">here</a> instead.`
+        : 'The contact form isn’t connected yet.';
+      return;
+    }
+    const data = new FormData(form);
+    const subject = `Message from ${data.get('name')}`;
+    const phone = data.get('phone') ? `, ${data.get('phone')}` : '';
+    const body = `${data.get('message')}
+
+— ${data.get('name')} (${data.get('email')}${phone})`;
+    location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+}
 
 // ---------- mobile menu ----------
 const menuBtn = $('.menu-btn');
 const setMenu = (open) => {
+  if (!menuBtn) return;
   document.documentElement.classList.toggle('menu-open', open);
   menuBtn.setAttribute('aria-expanded', String(open));
   menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
 };
-menuBtn.addEventListener('click', () => setMenu(!document.documentElement.classList.contains('menu-open')));
+if (menuBtn) menuBtn.addEventListener('click', () => setMenu(!document.documentElement.classList.contains('menu-open')));
 $$('.nav a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
 addEventListener('keydown', (e) => e.key === 'Escape' && setMenu(false));
 matchMedia('(min-width: 801px)').addEventListener('change', (e) => e.matches && setMenu(false));
