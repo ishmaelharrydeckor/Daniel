@@ -290,3 +290,15 @@ $('#contact-form').addEventListener('submit', (event) => {
   const body = `${data.get('message')}\n\n— ${data.get('name')} (${data.get('email')}${phone})`;
   location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 });
+
+// ---------- mobile menu ----------
+const menuBtn = $('.menu-btn');
+const setMenu = (open) => {
+  document.documentElement.classList.toggle('menu-open', open);
+  menuBtn.setAttribute('aria-expanded', String(open));
+  menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+};
+menuBtn.addEventListener('click', () => setMenu(!document.documentElement.classList.contains('menu-open')));
+$$('.nav a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+addEventListener('keydown', (e) => e.key === 'Escape' && setMenu(false));
+matchMedia('(min-width: 801px)').addEventListener('change', (e) => e.matches && setMenu(false));
